@@ -1,4 +1,8 @@
 #pragma once
+#include "point.h"
+#include "velocity.h"
+#include "thrust.h"
+
 class Lander
 {
 private:
@@ -15,7 +19,7 @@ private:
 public:
 
 	// Constructor
-	Lander(ptUpperRight);
+	Lander(Point ptUpperRight);
 	void reset();
 	bool isDead();
 	bool isFlying();
