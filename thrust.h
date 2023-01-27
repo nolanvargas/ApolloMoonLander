@@ -30,3 +30,4 @@ public:
 	bool isCounter();
 	void set(Interface UI);
 };
+
