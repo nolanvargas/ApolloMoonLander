@@ -74,7 +74,7 @@
     <ClInclude Include="star.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="trust.h">
+    <ClInclude Include="thrust.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lander.h">

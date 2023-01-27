@@ -38,7 +38,7 @@
     <ClInclude Include="lander.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="star.h" />
-    <ClInclude Include="trust.h" />
+    <ClInclude Include="thrust.h" />
     <ClInclude Include="uiDraw.h" />
     <ClInclude Include="uiInteract.h" />
     <ClInclude Include="velocity.h" />
