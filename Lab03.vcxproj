@@ -25,6 +25,7 @@
     <ClCompile Include="ground.cpp" />
     <ClCompile Include="lander.cpp" />
     <ClCompile Include="point.cpp" />
+    <ClCompile Include="processKinematics.cpp" />
     <ClCompile Include="star.cpp" />
     <ClCompile Include="thrust.cpp" />
     <ClCompile Include="uiDraw.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="ground.h" />
     <ClInclude Include="lander.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="processKinematics.h" />
     <ClInclude Include="star.h" />
     <ClInclude Include="thrust.h" />
     <ClInclude Include="uiDraw.h" />

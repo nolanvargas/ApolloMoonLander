@@ -48,6 +48,9 @@
     <ClCompile Include="lander.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="processKinematics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ground.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="processKinematics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
