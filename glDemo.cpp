@@ -8,6 +8,7 @@
 #include "uiInteract.h"
 #include "uiDraw.h"
 #include "ground.h"
+#include "lander.h"
 using namespace std;
 
 /*************************************************************************
@@ -21,7 +22,7 @@ public:
           angle(0.0),
           ptStar(ptUpperRight.getX() - 20.0, ptUpperRight.getY() - 20.0),
           ptLM(ptUpperRight.getX() / 2.0, ptUpperRight.getY() / 2.0),
-          ground(ptUpperRight)
+          ground(ptUpperRight), mL(Point(250.0, 250.0), ptUpperRight)
    { 
 
       phase = random(0, 255);
@@ -34,6 +35,8 @@ public:
    unsigned char phase;  // phase of the star's blinking
    Ground ground;
    Point ptStar;
+   Lander mL;
+
 };
 
 /*************************************
@@ -45,28 +48,38 @@ public:
  **************************************/
 void callBack(const Interface *pUI, void * p)
 {
+
+    // game.input(pUI);
+    // game.gamePlay(Thrust);
+    // game.display(Thrust);
+
+    // and check for reset too
    ogstream gout;
 
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
    Demo * pDemo = (Demo *)p;  
 
+   // Apply gravity to mL
+
    // move the ship around
    if (pUI->isRight())
-      pDemo->angle -= 0.1;
+      pDemo->mL.input(1);
    if (pUI->isLeft())
-      pDemo->angle += 0.1;
+      pDemo->mL.input(2);
    if (pUI->isUp())
-      pDemo->ptLM.addY(-1.0);
+      pDemo->mL.input(3);
    if (pUI->isDown())
-      pDemo->ptLM.addY(1.0);
+      pDemo->mL.input(4);
+
+   pDemo->mL.updatePosition();
 
    // draw the ground
    pDemo->ground.draw(gout);
 
    // draw the lander and its flames
-   gout.drawLander(pDemo->ptLM /*position*/, pDemo->angle /*angle*/);
-   gout.drawLanderFlames(pDemo->ptLM, pDemo->angle, /*angle*/
+   gout.drawLander(pDemo->mL.getPosition() /*position*/, pDemo->mL.getAngle() /*angle*/);
+   gout.drawLanderFlames(pDemo->mL.getPosition(), pDemo->mL.getAngle(), /*angle*/
                     pUI->isDown(), pUI->isLeft(), pUI->isRight());
 
    // put some text on the screen
