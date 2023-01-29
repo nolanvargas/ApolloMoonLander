@@ -14,12 +14,13 @@
 
 class Star
 {
-public:
-	// Constructor
+private:
 	char phase;
 	Point pt;
+public:
+	// Constructor
 	Star();
 
 	void reset(int width, int height);
-	void draw(ogstream gout);
+	void draw(ogstream& gout);
 };

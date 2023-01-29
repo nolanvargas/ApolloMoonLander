@@ -7,6 +7,7 @@
 #include "star.h"
 #include "thrust.h"
 #include <vector> // This may need to be changed
+#include <cmath>
 #include "game.h"
 
 using namespace std;
@@ -30,10 +31,11 @@ void Game::gamePlay(Thrust thrust) {
 void Game::display(Thrust thrust, const Interface* pUI) {
     ogstream gout;
 
-    // draw our stars
-    for (int i = 0; i <= 100; i++) {
-        gout.drawStar(stars[i].pt, stars[i].phase++);
+    for (auto& star : stars) {
+        star.draw(gout);
     }
+
+    // We were passing the object and that uses the object copy constructor. INstead we are passing by reference
 
     ground.draw(gout);
 
@@ -43,6 +45,8 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         pUI->isDown(), pUI->isLeft(), pUI->isRight());
 
     // draw the lander stats
-    gout.setPosition(Point(30.0, 30.0));
-    gout << "Fuel:\t" << mL.getFuel() << "\nAltitude:\t" << mL.getPosition().getY() << "\nSpeed:\t" << "0000";
+    cout << ptUpperRight.getY();
+    gout.setPosition(Point(30, 360));
+    double speed = round(mL.getSpeed() * 100.0) / 100.0;
+    gout << "Fuel:\t" << mL.getFuel() << "\nAltitude:\t" << mL.getPosition().getY() << "\nSpeed:\t" << speed << "m/s";
 }

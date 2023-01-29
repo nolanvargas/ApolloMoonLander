@@ -22,7 +22,7 @@ void Star::reset(int width, int height)
 	pt = Point(random(0, width), random(0, height));
 }
 
-void Star::draw(ogstream gout)
+void Star::draw(ogstream& gout)
 {
 	phase++;
 	gout.drawStar(pt, phase);
