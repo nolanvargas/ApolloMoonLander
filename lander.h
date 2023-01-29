@@ -38,6 +38,7 @@ public:
 	void land();
 	void crash();
 	void updatePosition();
+	double getSpeed();
 
 };
 

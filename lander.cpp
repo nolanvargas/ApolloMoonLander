@@ -54,15 +54,18 @@ void Lander::input(int x) {
 		std::tie( _x, _y) = pk.applyThrust(thrust, weight, v.getDx(), v.getDy(), angle);
 		v.setDx(_x);
 		v.setDy(_y);
+		fuel -= 10;
 	}
 	else if (x == 4) {
 		pt.addY(-1.0);
 	}
 	if (x == 2) {
 		angle += 0.1;
+		fuel -= 1;
 	}
 	else if (x == 1) {
 		angle -= 0.1;
+		fuel -= 1;
 	}
 	
 }
@@ -78,4 +81,9 @@ void Lander::updatePosition() {
 	pt.setX(_x);
 	pt.setY(_y);
 
+}
+
+double Lander::getSpeed()
+{
+	return v.getSpeed();
 }
