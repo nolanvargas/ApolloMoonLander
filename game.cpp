@@ -30,15 +30,17 @@ void Game::gamePlay(Thrust thrust) {
 void Game::display(Thrust thrust, const Interface* pUI) {
     ogstream gout;
 
+    // draw our stars
+    for (int i = 0; i <= 100; i++) {
+        gout.drawStar(stars[i].pt, stars[i].phase++);
+    }
+
     ground.draw(gout);
 
     // draw the lander and its flames
     gout.drawLander(mL.getPosition() /*position*/, mL.getAngle() /*angle*/);
     gout.drawLanderFlames(mL.getPosition(), mL.getAngle(), /*angle*/
         pUI->isDown(), pUI->isLeft(), pUI->isRight());
-
-    // draw our little star
-    gout.drawStar(ptStar, phase++);
 
     // draw the lander stats
     gout.setPosition(Point(30.0, 30.0));
