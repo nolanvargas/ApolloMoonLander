@@ -6,7 +6,6 @@
 class Lander
 {
 private:
-	int status; //1 for dead 0 for alive
 	Point pt;
 	Velocity v;
 	double angle = 0;
@@ -25,6 +24,7 @@ public:
 	{
 		status = 0;
 	};
+	int status; //0 for flying, 1 for dead, 2 for landed
 	void reset();
 	bool isDead();
 	bool isFlying();
@@ -34,7 +34,6 @@ public:
 	int getFuel();
 	//void draw(thrust, gout);
 	void input(int thrustHere);
-	void coast();
 	void land();
 	void crash();
 	void updatePosition();

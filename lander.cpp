@@ -19,7 +19,10 @@ bool Lander::isFlying() {
 }
 
 bool Lander::isLanded() {
-	return 1;
+	if (status == 2) {
+		return true;
+	}
+	return false;
 }
 
 Point Lander::getPosition() {
@@ -35,15 +38,13 @@ double Lander::getAngle()
 	return angle;
 }
 
-void Lander::coast() {
-	pt.addY(-1.0);
-}
-
 void Lander::land() {
-	//I dont know
+	angle = 0;
+	status = 2;
 }
 void Lander::crash() {
-	//boom
+	angle = -180;
+	status = 1;
 }
 
 void Lander::input(int x) {
