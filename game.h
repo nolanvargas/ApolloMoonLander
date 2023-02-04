@@ -16,6 +16,8 @@ private:
 	Ground ground;
 	Lander mL;
 
+	bool playing;
+	int timer;
 	Thrust thrust;
 	std::vector<Star> stars; // Vector of star objects
 
@@ -24,7 +26,8 @@ public:
 	// Contructor
 	Game(const Point& ptUpperRight) :
 		ptLM(ptUpperRight.getX() / 2.0, ptUpperRight.getY() / 2.0),
-		ground(ptUpperRight), mL(Point(250.0, 250.0), ptUpperRight)
+		ground(ptUpperRight), mL(Point(250.0, 250.0), ptUpperRight),
+		timer(100), playing(false)
 	{
 
 		for (int i = 0; i <= 100; i++) {

@@ -9,23 +9,50 @@
 #include <vector> // This may need to be changed
 #include <cmath>
 #include "game.h"
+#include <iomanip>
+#include <iostream>
 
 using namespace std;
 
+void Game::reset()
+{
+    timer = 100;
+    playing = false;
+}
+
 void Game::input(const Interface* pUI) {
     // move the ship around
-    if (pUI->isRight())
-        mL.input(1);
-    if (pUI->isLeft())
-        mL.input(2);
-    if (pUI->isUp())
-        mL.input(3);
-    if (pUI->isDown())
-        mL.input(4);
+    if (timer == 0 && mL.status == 0) {
+        if (pUI->isRight())
+            mL.input(1);
+        if (pUI->isLeft())
+            mL.input(2);
+        if (pUI->isUp())
+            mL.input(3);
+        if (pUI->isDown())
+            mL.input(4);
+    }
 }
 
 void Game::gamePlay(Thrust thrust) {
-    mL.updatePosition();
+    if (timer > 0) {
+        timer -= 1;
+        return;
+    }
+    else playing = true;
+
+    if (mL.status == 0) {
+        mL.updatePosition();
+        if (ground.onPlatform(mL.getPosition(), 10) && 
+            mL.getSpeed() < 4 && 
+            mL.getAngle() > -45 && 
+            mL.getAngle() < 45 ) {
+            mL.land();
+        }else if (ground.hitGround(mL.getPosition(), 10)) {
+            mL.crash();
+        }
+        
+    }
 }
 
 void Game::display(Thrust thrust, const Interface* pUI) {
@@ -45,8 +72,15 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         pUI->isDown(), pUI->isLeft(), pUI->isRight());
 
     // draw the lander stats
-    cout << ptUpperRight.getY();
     gout.setPosition(Point(30, 360));
     double speed = round(mL.getSpeed() * 100.0) / 100.0;
     gout << "Fuel:\t" << mL.getFuel() << "\nAltitude:\t" << mL.getPosition().getY() << "\nSpeed:\t" << speed << "m/s";
+
+    // display countdown timer
+    if (!playing) {
+        gout.setPosition(Point(200, 200));
+        float displayTimer = timer / 10.0;
+        gout << std::fixed << std::setprecision(1) << displayTimer;
+
+    }
 }
