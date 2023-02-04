@@ -89,7 +89,7 @@ void Game::display(Thrust thrust, const Interface* pUI) {
 
 
     // draw end game message
-    gout.setPosition(Point(120, 100));
+    gout.setPosition(Point(500, 600));
     if (mL.isLanded())
         gout << "Houston, We have Touchdown.\n";
     else if (mL.status == 1)
