@@ -11,8 +11,8 @@
 #include "uiDraw.h"   // for random() and drawLine()
 #include <cassert>
 
-const int    LZ_SIZE = 50;
-const double MAX_SLOPE = 1.0; // steapness of the features. Smaller number is flatter
+const int    LZ_SIZE = 30;
+const double MAX_SLOPE = 2.7; // steapness of the features. Smaller number is flatter
 const double LUMPINESS = 1.0; // size of the hills. Smaller number is bigger features
 const double TEXTURE = 3.0;   // size of the small features such as rocks
 
