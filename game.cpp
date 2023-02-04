@@ -83,4 +83,8 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         gout << std::fixed << std::setprecision(1) << displayTimer;
 
     }
+
+    if (mL.status == 1) {
+        gout.drawExplosion(mL.getPosition());
+    }
 }
