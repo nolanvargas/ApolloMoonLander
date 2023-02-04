@@ -83,4 +83,11 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         gout << std::fixed << std::setprecision(1) << displayTimer;
 
     }
+
+    // draw end game message
+    gout.setPosition(Point(120, 100));
+    if (mL.isLanded())
+        gout << "Houston, We have Touchdown.\n";
+    else if (mL.status == 1)
+        gout << "Houston, We Have a Problem!\n";
 }
