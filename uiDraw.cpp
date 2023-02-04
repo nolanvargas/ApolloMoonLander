@@ -405,6 +405,26 @@ Point ogstream::rotate(const Point& origin,
    return ptReturn;
 }
 
+void ogstream::drawExplosion(const Point& center)
+{
+
+    int numRays = 15;
+    float angleStep = 360.0 / numRays;
+
+    glBegin(GL_LINES);
+    for (int i = 0; i < numRays; i++)
+    {
+        float angle = deg2rad(i * angleStep);
+        float x = cos(angle);
+        float y = sin(angle);
+
+        // Draw a line from the center to a random point along the ray
+        glVertex2f(center.getX(), center.getY());
+        glVertex2f(center.getX() + x * (rand() % 50), center.getY() + y * (rand() % 50));
+    }
+    glEnd();
+}
+
 /******************************************************************
  * RANDOM
  * This function generates a random number.
