@@ -1,6 +1,7 @@
 #include "lander.h"
 #include "point.h"
 #include "thrust.h"
+#include "angle.h"
 #include "processKinematics.h"
 #include <tuple>
 
@@ -35,7 +36,7 @@ int Lander::getFuel() {
 
 double Lander::getAngle()
 {
-	return angle;
+	return angle.getRadians();
 }
 
 void Lander::land() {
@@ -43,7 +44,6 @@ void Lander::land() {
 	status = 2;
 }
 void Lander::crash() {
-	angle = -180;
 	status = 1;
 }
 
@@ -52,7 +52,7 @@ void Lander::input(int x) {
 		//cout << pt.getX() << endl;
 		//cout << pt.getY() << endl;
 		double _x, _y;
-		std::tie( _x, _y) = pk.applyThrust(thrust, weight, v.getDx(), v.getDy(), angle);
+		std::tie( _x, _y) = pk.applyThrust(thrust, weight, v.getDx(), v.getDy(), angle.getRadians());
 		v.setDx(_x);
 		v.setDy(_y);
 		fuel -= 10;
@@ -61,11 +61,11 @@ void Lander::input(int x) {
 		pt.addY(-1.0);
 	}
 	if (x == 2) {
-		angle += 0.1;
+		angle.setRadians(angle.getRadians() + 0.1);
 		fuel -= 1;
 	}
 	else if (x == 1) {
-		angle -= 0.1;
+		angle.setRadians(angle.getRadians() - 0.1);
 		fuel -= 1;
 	}
 	
@@ -76,7 +76,7 @@ void Lander::updatePosition() {
 	//cout << pt.getY() << endl;
 	//cout << v.getDx() << endl;
 	//cout << v.getDy() << endl;
-	v.setDy(pk.applyGravity(v.getDy(), (g / 10)));
+	v.setDy(pk.applyGravity(v.getDy(), (g / 30)));
 	double _x, _y;
 	tie(_x, _y) = pk.applyInertia(pt.getX(), pt.getY(), v.getDx(), v.getDy(), g);
 	pt.setX(_x);
@@ -86,5 +86,5 @@ void Lander::updatePosition() {
 
 double Lander::getSpeed()
 {
-	return v.getSpeed();
+	return v.getSpeed() * 3; // 3 times speed?;
 }

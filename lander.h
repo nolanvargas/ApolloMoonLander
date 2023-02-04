@@ -2,13 +2,14 @@
 #include "point.h"
 #include "velocity.h"
 #include "thrust.h"
+#include "angle.h"
 
 class Lander
 {
 private:
 	Point pt;
 	Velocity v;
-	double angle = 0;
+	Angle angle;
 	Point ptUpperRight; // Size of the screen
 	int fuel = 5000; //Makes sense to make it an integer
 	const double weight = 15103.00;
@@ -32,7 +33,6 @@ public:
 	Point getPosition();
 	double getAngle();
 	int getFuel();
-	//void draw(thrust, gout);
 	void input(int thrustHere);
 	void land();
 	void crash();
