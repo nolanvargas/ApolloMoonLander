@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="acceleration.cpp" />
+    <ClCompile Include="angle.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="program.cpp" />
     <ClCompile Include="ground.cpp" />
@@ -34,11 +35,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acceleration.h" />
+    <ClInclude Include="angle.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="ground.h" />
     <ClInclude Include="lander.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="processKinematics.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="star.h" />
     <ClInclude Include="thrust.h" />
     <ClInclude Include="uiDraw.h" />
@@ -47,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Lab03.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -146,6 +152,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\nolan\Desktop\ApolloMoonLander;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
