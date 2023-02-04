@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 #endif // !_WIN32
 {
     // Initialize OpenGL
-    Point ptUpperRight(1000.0, 1000.0);
+    Point ptUpperRight(400.0, 400.0);
     Interface ui(0, NULL,
         "Open GL Demo",
         ptUpperRight);
