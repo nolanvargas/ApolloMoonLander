@@ -22,7 +22,7 @@ void Game::reset()
 
 void Game::input(const Interface* pUI) {
     // move the ship around
-    if (timer == 0 && mL.status == 0) {
+    if (timer == 0 && mL.status == 0 && mL.getFuel() > 0) {
         if (pUI->isRight())
             mL.input(1);
         if (pUI->isLeft())
