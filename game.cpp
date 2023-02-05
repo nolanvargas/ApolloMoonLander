@@ -40,7 +40,6 @@ void Game::gamePlay(Thrust thrust) {
         return;
     }
     else playing = true;
-    cout << mL.getAngle() << "   " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
     if (mL.status == 0) {
         mL.updatePosition();
         if (ground.onPlatform(mL.getPosition(), 20) &&
@@ -50,9 +49,9 @@ void Game::gamePlay(Thrust thrust) {
             mL.land();
         }
         else if (ground.hitGround(mL.getPosition(), 20)) {
-            cout << "Speed: " << (mL.getSpeed() < 4) << endl;
-            cout << "Angle: " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
-            cout << "Platform: " << (ground.onPlatform(mL.getPosition(), 10)) << endl;
+            //cout << "Speed: " << (mL.getSpeed() < 4) << endl;
+            //cout << "Angle: " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
+            //cout << "Platform: " << (ground.onPlatform(mL.getPosition(), 10)) << endl;
             mL.crash();
         }
 
