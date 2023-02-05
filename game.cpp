@@ -43,18 +43,19 @@ void Game::gamePlay(Thrust thrust) {
     cout << mL.getAngle() << "   " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
     if (mL.status == 0) {
         mL.updatePosition();
-        if (ground.onPlatform(mL.getPosition(), 20) && 
-            mL.getSpeed() < 4 && 
-            (mL.getAngle() > 5.8 || 
-            mL.getAngle() < 0.5 )) {
+        if (ground.onPlatform(mL.getPosition(), 20) &&
+            mL.getSpeed() < 4 &&
+            (mL.getAngle() > 5.8 ||
+                mL.getAngle() < 0.5)) {
             mL.land();
-        }else if (ground.hitGround(mL.getPosition(), 20)) {
+        }
+        else if (ground.hitGround(mL.getPosition(), 20)) {
             cout << "Speed: " << (mL.getSpeed() < 4) << endl;
             cout << "Angle: " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
             cout << "Platform: " << (ground.onPlatform(mL.getPosition(), 10)) << endl;
             mL.crash();
         }
-        
+
     }
 }
 
@@ -75,7 +76,7 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         pUI->isDown(), pUI->isLeft(), pUI->isRight());
 
     // draw the lander stats
-    gout.setPosition(Point(30, 960));
+    gout.setPosition(Point(30, 360));
     double speed = round(mL.getSpeed() * 100.0) / 100.0;
     gout << "Fuel:\t" << mL.getFuel() << " lbs \nAltitude:\t" << round(ground.getElevation(mL.getPosition())) << " meters\nSpeed:\t" << speed << " m/s";
 
@@ -91,7 +92,8 @@ void Game::display(Thrust thrust, const Interface* pUI) {
 
 
     // draw end game message
-    gout.setPosition(Point(500, 600));
+    gout.setPosition(Point(200, 200));
+    Point endGameMessages(200, 200);
     if (mL.isLanded())
         gout << "Houston, We have Touchdown!\n";
     else if (mL.status == 1) {
