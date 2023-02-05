@@ -75,16 +75,15 @@ void Game::display(Thrust thrust, const Interface* pUI) {
         pUI->isDown(), pUI->isLeft(), pUI->isRight());
 
     // draw the lander stats
-    gout.setPosition(Point(30, 360));
+    gout.setPosition(Point(30, 960));
     double speed = round(mL.getSpeed() * 100.0) / 100.0;
     gout << "Fuel:\t" << mL.getFuel() << " lbs \nAltitude:\t" << round(ground.getElevation(mL.getPosition())) << " meters\nSpeed:\t" << speed << " m/s";
 
     // display countdown timer
     if (!playing) {
-        gout.setPosition(Point(200, 200));
+        gout.setPosition(Point(500, 700));
         float displayTimer = timer / 10.0;
         gout << std::fixed << std::setprecision(1) << displayTimer;
-
     }
     if (mL.status == 1) {
         gout.drawExplosion(mL.getPosition());
@@ -92,8 +91,7 @@ void Game::display(Thrust thrust, const Interface* pUI) {
 
 
     // draw end game message
-    Point endGameMessages = Point(200, 200);
-    gout.setPosition(endGameMessages);
+    gout.setPosition(Point(500, 600));
     if (mL.isLanded())
         gout << "Houston, We have Touchdown!\n";
     else if (mL.status == 1) {
