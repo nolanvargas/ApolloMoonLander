@@ -9,6 +9,10 @@ ProcessKinematics pk;
 
 void Lander::reset() {
 	status = 0;
+	pt = startingPt;
+	angle = Angle();
+	fuel = 5000;
+	v = Velocity();
 }
 
 bool Lander::isDead() {

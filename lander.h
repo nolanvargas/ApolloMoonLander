@@ -8,12 +8,13 @@ class Lander
 {
 private:
 	Point pt;
+	Point startingPt;
 	Velocity v;
 	Angle angle;
 	Point ptUpperRight; // Size of the screen
 	int fuel = 5000; //Makes sense to make it an integer
 	const double weight = 15103.00;
-	const double thrust = 45000.00;
+	const double thrust = 15000.00;
 	const double g = -1.625; //Gravity
 
 public:
@@ -21,6 +22,7 @@ public:
 	// Constructor
 	Lander(Point location, Point screen) : 
 		pt(location), 
+		startingPt(location),
 		ptUpperRight(screen)
 	{
 		status = 0;
