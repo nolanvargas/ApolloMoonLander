@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="program.cpp" />
@@ -34,7 +33,6 @@
     <ClCompile Include="velocity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="ground.h" />
