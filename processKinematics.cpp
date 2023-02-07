@@ -1,12 +1,4 @@
-#include <iostream> // cout and what not
-#include <iomanip> //setw
-#include <cmath> //sqrt
-#include <cassert>//assert
 #include "processKinematics.h"
-#include <tuple>
-
-using namespace std;
-
 
 /*
 * APPLY INTERTIA
@@ -70,13 +62,8 @@ tuple<double, double> ProcessKinematics::applyThrust(double thrust, \
     double ddx = sin(angle) * thrust / weight;
     double ddy = cos(angle) * thrust / weight;
 
-    //cout << "ddx " << ddx << " | " << "ddy " << ddy << endl;
-
     dx = dx - ddx / 10; //! HARDCODED !
     dy = dy + ddy / 10; //! HARDCODED !
-
-    /*cout << "dx " << dx << " | " << "dy " << dy << endl;
-    cout << "-----------------------\n";*/
     
     return make_tuple(dx, dy);
 }

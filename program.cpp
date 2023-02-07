@@ -1,10 +1,4 @@
-#include "point.h"
-#include "uiInteract.h"
-#include "uiDraw.h"
-#include "ground.h"
-#include "lander.h"
 #include "game.h"
-#include "thrust.h"
 using namespace std;
 
 void callBack(const Interface* pUI, void* p)

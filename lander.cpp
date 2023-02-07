@@ -1,9 +1,5 @@
 #include "lander.h"
-#include "point.h"
-#include "thrust.h"
-#include "angle.h"
 #include "processKinematics.h"
-#include <tuple>
 
 ProcessKinematics pk;
 
@@ -76,10 +72,6 @@ void Lander::input(int x) {
 }
 
 void Lander::updatePosition() {
-	//cout << pt.getX() << endl;
-	//cout << pt.getY() << endl;
-	//cout << v.getDx() << endl;
-	//cout << v.getDy() << endl;
 	v.setDy(pk.applyGravity(v.getDy(), (g / 30)));
 	double _x, _y;
 	tie(_x, _y) = pk.applyInertia(pt.getX(), pt.getY(), v.getDx(), v.getDy(), g);

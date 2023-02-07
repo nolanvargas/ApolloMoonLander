@@ -16,18 +16,6 @@ Thrust::Thrust()
 	counterClockwise = false;
 }
 
-void Thrust::rotation()
-{
-	//placeholder
-	return;
-}
-
-void Thrust::mainEngineThrust()
-{
-	//placeholder
-	return;
-}
-
 bool Thrust::isMain()
 {
 	return mainEngine;

@@ -46,9 +46,3 @@ void Velocity::setDy(float dy)
 {
 	this->dy = dy;
 }
-
-void Velocity::add(float acceleration, float time)
-{
-	//placeholder
-	return;
-}

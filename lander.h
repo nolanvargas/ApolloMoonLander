@@ -1,5 +1,4 @@
 #pragma once
-#include "point.h"
 #include "velocity.h"
 #include "thrust.h"
 #include "angle.h"

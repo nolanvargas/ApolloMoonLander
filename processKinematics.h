@@ -1,7 +1,3 @@
-#include <iostream> // cout and what not
-#include <iomanip> //setw
-#include <cmath> //sqrt
-#include <cassert>//assert
 #include <tuple>
 
 using namespace std;

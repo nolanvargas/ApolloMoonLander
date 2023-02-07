@@ -1,12 +1,8 @@
 #pragma once
-#include "uiInteract.h"
-#include "uiDraw.h"
-#include "point.h"
 #include "ground.h"
 #include "lander.h"
 #include "star.h"
-#include "thrust.h"
-#include <vector> // This may need to be changed
+#include <vector>
 
 class Game
 {

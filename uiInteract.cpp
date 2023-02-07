@@ -10,8 +10,6 @@
  *     pointer towards the bottom of the file.
  ************************************************************************/
 
-#include <string>     // need you ask?
-#include <sstream>    // convert an integer into text
 #include <cassert>    // I feel the need... the need for asserts
 #include <time.h>     // for clock
 #include <cstdlib>    // for rand()

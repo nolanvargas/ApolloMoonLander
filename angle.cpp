@@ -1,5 +1,4 @@
 #include "angle.h"
-#include <cmath>
 #include <iostream>
 #include <iomanip>
 

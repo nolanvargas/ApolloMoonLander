@@ -25,5 +25,4 @@ public:
 	float getSpeed();
 	void setDx(float dx);
 	void setDy(float dy);
-	void add(float acceleration, float time);
 };

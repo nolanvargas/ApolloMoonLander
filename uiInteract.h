@@ -17,9 +17,6 @@
 #pragma once
 
 #include "point.h"
-#include <algorithm> // used for min() and max() (specifically required by Visual Studio)
-using std::min;
-using std::max;
 
 /********************************************
  * INTERFACE

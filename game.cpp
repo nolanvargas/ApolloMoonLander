@@ -1,16 +1,6 @@
 #pragma once
-#include "uiInteract.h"
-#include "uiDraw.h"
-#include "point.h"
-#include "ground.h"
-#include "lander.h"
-#include "star.h"
-#include "thrust.h"
-#include <vector> // This may need to be changed
-#include <cmath>
 #include "game.h"
 #include <iomanip>
-#include <iostream>
 
 using namespace std;
 
@@ -54,9 +44,6 @@ void Game::gamePlay(Thrust thrust) {
             mL.land();
         }
         else if (ground.hitGround(mL.getPosition(), 20)) {
-            //cout << "Speed: " << (mL.getSpeed() < 4) << endl;
-            //cout << "Angle: " << (mL.getAngle() > 5.8 || mL.getAngle() < 0.5) << endl;
-            //cout << "Platform: " << (ground.onPlatform(mL.getPosition(), 10)) << endl;
             mL.crash();
         }
 

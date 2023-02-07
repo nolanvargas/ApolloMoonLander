@@ -23,8 +23,6 @@ public:
 	// Constructor
 	Thrust();
 
-	void rotation();
-	void mainEngineThrust();
 	bool isMain();
 	bool isClock();
 	bool isCounter();
