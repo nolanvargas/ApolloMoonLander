@@ -2,7 +2,7 @@
  * Source File:
  *    Velocity : Represents the lunar lander velocity in the lunar lander game
  * Author:
- *    Antonio Saucedo
+ *    Antonio Saucedo, Thomas Vargas
  * Summary:
  *    The speed the lunar lander is travelling.
  ************************************************************************/

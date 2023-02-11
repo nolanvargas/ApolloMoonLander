@@ -1,3 +1,16 @@
+/***********************************************************************
+ * Header File:
+ *    Game : Represents the game 
+ * Author:
+ *    Antonio Saucedo, Thomas Vargas
+ * Summary:
+ *    This class facilitates gameplay using the game cycle methods:
+ *    input, update, and output.
+ * 
+ ************************************************************************/
+
+
+
 #pragma once
 #include "ground.h"
 #include "lander.h"
@@ -14,7 +27,6 @@ private:
 
 	bool playing;
 	int timer;
-	Thrust thrust;
 	std::vector<Star> stars; // Vector of star objects
 
 public:
@@ -35,8 +47,8 @@ public:
 
 	void reset();
 	void input(const Interface* pUI); //ui draw maybe?
-	void gamePlay(Thrust thrust);
-	void display(Thrust thrust, const Interface* pUI);
+	void gamePlay();
+	void display(const Interface* pUI);
 
 };
 

@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Header File:
+ *    Angle : Represents an angle with its properties
+ * Author:
+ *    Antonio Saucedo, Thomas Vargas
+ * Summary:
+ *    An angle has a value of radians. This classa has the functionality
+ *    to convert radians to degrees and accept degrees as input
+ ************************************************************************/
+
 #pragma once
 class Angle
 {

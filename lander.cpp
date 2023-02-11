@@ -4,7 +4,8 @@
 ProcessKinematics pk;
 
 void Lander::reset() {
-	status = 0;
+	landed = false;
+	dead = false;
 	pt = startingPt;
 	angle = Angle();
 	fuel = 5000;
@@ -12,18 +13,16 @@ void Lander::reset() {
 }
 
 bool Lander::isDead() {
-	return status;
+	return dead;
 }
 
 bool Lander::isFlying() {
-	return 1;
+	if (!dead) return true;
+	return false;
 }
 
 bool Lander::isLanded() {
-	if (status == 2) {
-		return true;
-	}
-	return false;
+	return landed;
 }
 
 Point Lander::getPosition() {
@@ -41,34 +40,30 @@ double Lander::getAngle()
 
 void Lander::land() {
 	angle = 0;
-	status = 2;
+	landed = true;
 }
 void Lander::crash() {
-	status = 1;
+	dead = true;
 }
 
-void Lander::input(int x) {
-	if (x == 4) {
-		//cout << pt.getX() << endl;
-		//cout << pt.getY() << endl;
+void Lander::handleInput(const Interface* pUI) {
+	if (pUI->isRight())
+	{
+		angle.setRadians(angle.getRadians() - 0.1);
+		fuel -= 1;
+	}
+	if (pUI->isLeft())
+	{
+		angle.setRadians(angle.getRadians() + 0.1);
+		fuel -= 1;
+	}
+	if (pUI->isDown()) {
 		double _x, _y;
-		std::tie( _x, _y) = pk.applyThrust(thrust, weight, v.getDx(), v.getDy(), angle.getRadians());
+		std::tie(_x, _y) = pk.applyThrust(thrust, weight, v.getDx(), v.getDy(), angle.getRadians());
 		v.setDx(_x);
 		v.setDy(_y);
 		fuel -= 10;
 	}
-	else if (x == 4) {
-		pt.addY(-1.0);
-	}
-	if (x == 2) {
-		angle.setRadians(angle.getRadians() + 0.1);
-		fuel -= 1;
-	}
-	else if (x == 1) {
-		angle.setRadians(angle.getRadians() - 0.1);
-		fuel -= 1;
-	}
-	
 }
 
 void Lander::updatePosition() {

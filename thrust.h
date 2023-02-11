@@ -2,7 +2,7 @@
  * Header File:
  *    Thrust : Represents the engine thrust in the lunar lander game
  * Author:
- *    Antonio Saucedo
+ *    Antonio Saucedo, Thomas Vargas
  * Summary:
  *    When the lunar lander is rotating and using thrusters.
  ************************************************************************/

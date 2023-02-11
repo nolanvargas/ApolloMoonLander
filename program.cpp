@@ -8,10 +8,9 @@ void callBack(const Interface* pUI, void* p)
     // Cast a void pointer to the game object
     Game* game = (Game*)p;
 
-    Thrust thrust; // We will do something with this
     game->input(pUI);
-    game->gamePlay(thrust);
-    game->display(thrust, pUI);
+    game->gamePlay();
+    game->display(pUI);
 }
 
 #ifdef _WIN32_X

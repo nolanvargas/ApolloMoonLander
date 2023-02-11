@@ -24,6 +24,5 @@ void Star::reset(int width, int height)
 
 void Star::draw(ogstream& gout)
 {
-	phase++;
-	gout.drawStar(pt, phase);
+	gout.drawStar(pt, phase++);
 }

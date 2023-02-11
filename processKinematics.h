@@ -1,3 +1,15 @@
+/***********************************************************************
+ * Header File:
+ *    ProcessKinematics : A class with kinematic calculations
+ * Author:
+ *    Antonio Saucedo, Thomas Vargas
+ * Summary:
+ *    The methods in this class will perform calculations on the
+ *	  given inputs to produce new kinematic variables
+ ************************************************************************/
+
+
+
 #include <tuple>
 
 using namespace std;

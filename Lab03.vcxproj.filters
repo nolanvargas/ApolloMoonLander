@@ -39,9 +39,6 @@
     <ClCompile Include="star.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thrust.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lander.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,16 +71,10 @@
     <ClInclude Include="star.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thrust.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="lander.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="processKinematics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="angle.h">

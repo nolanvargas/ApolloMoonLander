@@ -103,20 +103,24 @@ bool Ground::hitGround(const Point& position, int landerWidth) const
 bool Ground :: onPlatform(const Point & position, int landerWidth) const
 {
    // not on the platform if we are too high
-   if (getElevation(position) > 1.0)
+    if (getElevation(position) > 1.0) {
       return false;
+    }
 
    // not on the platform if we hit the ground
-   if (getElevation(position) < 0.0)
-      return false;
+    if (getElevation(position) < 0.0) {
+        return false;
+    }
 
    // not on the platform if we are too far left
-   if (position.getX() + landerWidth / 2.0 < (double)iLZ)
-      return false;
+    if (position.getX() + landerWidth / 2.0 < (double)iLZ) {
+        return false;
+    }
 
    // not on the platform if we are too far right
-   if (position.getX() - landerWidth / 2.0 > (double)(iLZ + LZ_SIZE))
-      return false;
+    if (position.getX() - landerWidth / 2.0 > (double)(iLZ + LZ_SIZE)) {
+        return false;
+    }
 
    return true;
 }
